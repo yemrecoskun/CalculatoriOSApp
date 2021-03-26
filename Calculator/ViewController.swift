@@ -12,6 +12,18 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var calculator: UILabel!
+    @IBOutlet weak var commas: UIButton!
+    @IBOutlet weak var zero: UIButton!
+    @IBOutlet weak var one: UIButton!
+    @IBOutlet weak var two: UIButton!
+    @IBOutlet weak var three: UIButton!
+    @IBOutlet weak var four: UIButton!
+    @IBOutlet weak var five: UIButton!
+    @IBOutlet weak var six: UIButton!
+    @IBOutlet weak var seven: UIButton!
+    @IBOutlet weak var eight: UIButton!
+    @IBOutlet weak var nine: UIButton!
+    @IBOutlet weak var theme: UISegmentedControl!
     var pon = false
     var operation = ""
     var firstNumber = ""
@@ -20,7 +32,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    @IBAction func themeButton(_ sender: UISegmentedControl){
+        if sender.selectedSegmentIndex == 1 {
+            theme.backgroundColor = .black
+            view.backgroundColor = .black
+            themeChange(value: .white)
+        }
+        else if sender.selectedSegmentIndex == 0 {
+            theme.backgroundColor = .white
+            view.backgroundColor = .white
+            themeChange(value: .black)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -155,6 +179,21 @@ class ViewController: UIViewController {
             break
         default : break
         }
+    }
+    func themeChange(value : UIColor){
+        label.textColor = value
+        calculator.textColor = value
+        commas.titleLabel?.textColor = value
+        zero.titleLabel?.textColor = value
+        one.titleLabel?.textColor = value
+        two.titleLabel?.textColor = value
+        three.titleLabel?.textColor = value
+        four.titleLabel?.textColor = value
+        five.titleLabel?.textColor = value
+        six.titleLabel?.textColor = value
+        seven.titleLabel?.textColor = value
+        eight.titleLabel?.textColor = value
+        nine.titleLabel?.textColor = value
     }
 }
 
