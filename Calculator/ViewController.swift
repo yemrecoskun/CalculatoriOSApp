@@ -84,10 +84,10 @@ class ViewController: UIViewController {
         newLabelText(value: "9")
     }
     @IBAction func commasButton(_ sender: Any) {
-        //if !label.text.contains(".")
-        //{
+        if label.text!.contains(".") == false
+        {
             label.text?.append(".")
-        //}
+        }
     }
     @IBAction func clearText(_ sender: Any) {
         label.text="0"
