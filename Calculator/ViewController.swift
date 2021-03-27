@@ -158,27 +158,35 @@ class ViewController: UIViewController {
     func operationResult(){
         switch operation {
         case "/":
-            let result = String(Double(firstNumber)! / Double(label.text!)!)
+            let result = convertToString(String(Double(firstNumber)! / Double(label.text!)!))
             calculator.text = String(firstNumber + "/" + label.text! + "=" + result)
             label.text = result
             break
         case "*":
-            let result = String(Double(firstNumber)! * Double(label.text!)!)
+            let result = convertToString(String(Double(firstNumber)! * Double(label.text!)!))
             calculator.text = String(firstNumber + "*" + label.text! + "=" + result)
             label.text = result
             break
         case "+":
-            let result = String(Double(firstNumber)! + Double(label.text!)!)
+            let result = convertToString(String(Double(firstNumber)! + Double(label.text!)!))
             calculator.text = String(firstNumber + "+" + label.text! + "=" + result)
             label.text = result
             break
         case "-":
-            let result = String(Double(firstNumber)! - Double(label.text!)!)
+            let result = convertToString(String(Double(firstNumber)! - Double(label.text!)!))
             calculator.text = String(firstNumber + "-" + label.text! + "=" + result)
             label.text = result
             break
         default : break
         }
+    }
+    func convertToString(_ value : String) -> String {
+        let item = value.suffix(2)
+        if item == ".0" {
+            let result = value.replacingOccurrences(of: item, with: "")
+            return result
+        }
+        return value
     }
     func themeChange(value : UIColor){
         label.textColor = value
